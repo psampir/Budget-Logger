@@ -3,7 +3,7 @@
 {"amt":81.92,"cat":"Health","desc":"Daves Island Stinger","date":"2023-10-24","time":"13:45","to":null,"from":null},
 {"amt":67.67,"cat":"Toys","desc":"Lady Fingers","date":"2023-11-01","time":"14:33","to":null,"from":null},
 {"amt":27.57,"cat":"Health","desc":"Butter - Salted","date":"2023-03-24","time":"19:30","to":null,"from":null},
-{"amt":40.54,"cat":"Home Decor","desc":"Liquid Aminios Acid - Braggs","date":"2023-04-23","time":"5:05","to":null,"from":null},
+{"cat":"Home Decor","desc":"Liquid Aminios Acid - Braggs","date":"2023-04-23","time":"5:05","to":null,"from":null},
 {"amt":51.74,"cat":"Sports","desc":"Fond - Neutral","date":"2023-07-29","time":"0:37","to":null,"from":null},
 {"amt":67.22,"cat":"Sports","desc":"Vanilla Beans","date":"2023-02-23","time":"16:02","to":null,"from":null},
 {"amt":59.24,"cat":"Books","desc":"Mcguinness - Blue Curacao","date":"2023-10-30","time":"20:44","to":null,"from":null},

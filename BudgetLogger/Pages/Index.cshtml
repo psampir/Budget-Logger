@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "History";
 }
 
 @* <div class="text-center"> *@
@@ -9,12 +9,31 @@
 @*     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
 @* </div> *@
 
-<div class="card-columns">
-    @foreach (var transaction in Model.Transactions!)
-    {
-        <div class="card">
-            <div class="card-text">@transaction.Amount</div>
-            <div class="card-title">@transaction.Description</div>
-        </div>
-    }
+<div class="container">
+    <h2>Transaction History</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Category</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var transaction in Model.Transactions!)
+        {
+            <tr>
+                <td>@transaction.Type</td>
+                <td>@transaction.Amount.ToString("F2") zł</td>
+                <td>@transaction.Date</td>
+                <td>@transaction.Time.Hours:@transaction.Time.Minutes</td>
+                <td>@transaction.Category</td>
+                <td>@transaction.Description</td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>

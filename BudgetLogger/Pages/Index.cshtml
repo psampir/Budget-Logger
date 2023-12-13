@@ -16,12 +16,12 @@
         <div class="table-responsive table-responsive-sm">
             <table class="table table-striped table-sm col-md-12">
                 <thead>
-                <tr>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Category</th>
-                </tr>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Category</th>
+                    </tr>
                 </thead>
                 <tbody>
                 @foreach (var transaction in Model.Transactions!)
@@ -29,7 +29,7 @@
                     <tr data-bs-toggle="popover" data-bs-title="Description" data-bs-content="@transaction.Description">
                         <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@transaction.Amount.ToString("F2") zł</td>
                         <td>@transaction.Date</td>
-                        <td>@transaction.Time.Hours:@transaction.Time.Minutes</td>
+                        <td>@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
                         <td>@transaction.Category</td>
                     </tr>
                 }

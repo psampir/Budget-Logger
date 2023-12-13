@@ -8,7 +8,7 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     public JsonFileTransactionService TransactionService;
-    public IEnumerable<Transaction>? Transactions { get; private set; }
+    public List<Transaction>? Transactions { get; private set; }
 
     public IndexModel(
         ILogger<IndexModel> logger, 

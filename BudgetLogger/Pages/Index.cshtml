@@ -4,36 +4,40 @@
     ViewData["Title"] = "History";
 }
 
-@* <div class="text-center"> *@
-@*     <h1 class="display-4">Welcome there!!</h1> *@
-@*     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
-@* </div> *@
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/site.js"></script>
 
-<div class="container">
+<div class="container" style="padding: 0 !important;">
     <h2>Transaction History</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Category</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var transaction in Model.Transactions!)
-        {
-            <tr>
-                <td>@transaction.Type</td>
-                <td>@transaction.Amount.ToString("F2") zł</td>
-                <td>@transaction.Date</td>
-                <td>@transaction.Time.Hours:@transaction.Time.Minutes</td>
-                <td>@transaction.Category</td>
-                <td>@transaction.Description</td>
-            </tr>
-        }
-        </tbody>
-    </table>
 </div>
+
+<div style="max-height: calc(100vh - 200px); overflow-y: auto;">
+    <div class="container" style="padding: 0 !important;">
+        <div class="table-responsive table-responsive-sm">
+            <table class="table table-striped table-sm col-md-12">
+                <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Category</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var transaction in Model.Transactions!)
+                {
+                    <tr data-bs-toggle="popover" data-bs-title="Description" data-bs-content="@transaction.Description">
+                        <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@transaction.Amount.ToString("F2") zł</td>
+                        <td>@transaction.Date</td>
+                        <td>@transaction.Time.Hours:@transaction.Time.Minutes</td>
+                        <td>@transaction.Category</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

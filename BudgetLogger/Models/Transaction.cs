@@ -18,7 +18,7 @@ public class Transaction
      public DateTime DateTime { get; set; }
      
      [JsonIgnore]
-     public string Date => DateTime.Date.ToString("yyyy-MM-dd");
+     public DateTime Date => DateTime.Date;
 
      [JsonIgnore]
      public TimeSpan Time => DateTime.TimeOfDay;

@@ -18,19 +18,26 @@
                 <thead>
                     <tr>
                         <th>Amount</th>
-                        <th>Date</th>
                         <th>Time</th>
+                        <th>Date</th>
                         <th>Category</th>
+                        <th><span style="color: red;">Delete</span></th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach (var transaction in Model.Transactions!)
+                @foreach (var transaction in Model.SortedTransactions!)
                 {
                     <tr data-bs-toggle="popover" data-bs-title="Description" data-bs-content="@transaction.Description">
                         <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@transaction.Amount.ToString("F2") zł</td>
-                        <td>@transaction.Date</td>
                         <td>@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
+                        <td>@transaction.Date.ToString("dd.MM.yy")</td>
                         <td>@transaction.Category</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="id" value="@transaction.Category"/>
+                                <button type="submit" class="btn" name="action" value="delete" style="font-size: 0.9em;">❌</button>
+                            </form>
+                        </td>
                     </tr>
                 }
                 </tbody>

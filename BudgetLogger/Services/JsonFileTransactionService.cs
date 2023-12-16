@@ -25,6 +25,19 @@ namespace BudgetLogger.Services
                     PropertyNameCaseInsensitive = true // Option to make property name matching case-insensitive during deserialization
                 });
         }
+
+        // Method to serialize write the updated JSON content back to the file
+        private void WriteToJson(List<Transaction> transactions)
+        {
+            // Serialize the updated list of transactions to JSON with indented formatting
+            var jsonString = JsonSerializer.Serialize(transactions, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            
+            // Write the updated JSON content back to the file
+            File.WriteAllText(JsonFileName, jsonString);
+        }
         
         // Method to delete a transaction from the JSON file
         public void DeleteTransaction(decimal amount, string category, string description, DateTime datetime)
@@ -39,21 +52,30 @@ namespace BudgetLogger.Services
                 select transaction
             ).FirstOrDefault();
 
-            // 
+            // If not found specified transaction, end the method 
             if (transactionToRemove == null) return;
             
             // Remove selected transaction
             transactions.Remove(transactionToRemove);
 
-            // Serialize the updated list of transactions to JSON with indented formatting
-            var jsonString = JsonSerializer.Serialize(transactions, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
+            // Serialize and write to JSON
+            WriteToJson(transactions);
+        }
+        
+        // Method to add a transaction to the JSON file
+        public void AddTransaction(decimal amount, string category, string description, DateTime datetime, TransactionType type)
+        {
+            // Read existing transactions from the JSON file
+            var transactions = GetTransactions() ?? new List<Transaction>();
 
+            // Create a new instance of Transaction
+            var newTransaction = new Transaction(amount, category, description, datetime, type);
 
-            // Write the updated JSON content back to the file
-            File.WriteAllText(JsonFileName, jsonString);
+            // Add a new transaction
+            transactions.Add(newTransaction);
+
+            // Serialize and write to JSON
+            WriteToJson(transactions);
         }
     }
 }

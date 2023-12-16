@@ -26,6 +26,7 @@ namespace BudgetLogger.Services
                 });
         }
         
+        // Method to delete a transaction from the JSON file
         public void DeleteTransaction(decimal amount, string category, string description, DateTime datetime)
         {
             // Read existing transactions from the JSON file
@@ -44,8 +45,12 @@ namespace BudgetLogger.Services
             // Remove selected transaction
             transactions.Remove(transactionToRemove);
 
-            // Serialize the updated list of transactions to JSON
-            var jsonString = JsonSerializer.Serialize(transactions);
+            // Serialize the updated list of transactions to JSON with indented formatting
+            var jsonString = JsonSerializer.Serialize(transactions, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
 
             // Write the updated JSON content back to the file
             File.WriteAllText(JsonFileName, jsonString);

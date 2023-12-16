@@ -29,21 +29,9 @@ public class IndexModel : PageModel
             select transaction).ToList();
     }
     
-    // public IActionResult OnPost(string action, int id)
-    // {
-    //     if (action == "delete")
-    //     {
-            // Find and remove the transaction by ID
-            // var transactionToDelete = Transactions.FirstOrDefault(t => t.Id == id);
-            // if (transactionToDelete != null)
-            // {
-            //     Transactions.Remove(transactionToDelete);
-                // TransactionService.DeleteTransaction();
-                // Update the JSON file or database with the modified Transactions list
-                // TransactionService.UpdateTransactions(Transactions);
-//             }
-//         }
-//
-//         return RedirectToPage("/Index"); // Redirect back to the page
-//     }
+    public IActionResult OnPostDelete(decimal amount, string category, string description, DateTime datetime)
+    {
+        TransactionService.DeleteTransaction(amount, category, description, datetime);
+        return RedirectToPage("Index");
+    }
 }

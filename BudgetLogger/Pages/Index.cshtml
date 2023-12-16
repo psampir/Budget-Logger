@@ -9,42 +9,36 @@
 
 <div class="container" style="padding: 0 !important;">
     <h2>Transaction History</h2>
-</div>
 
-<div style="max-height: calc(100vh - 200px); overflow-y: auto;">
-    <div class="container" style="padding: 0 !important;">
-        <div class="table-responsive table-responsive-sm">
-            <table class="table table-striped table-sm col-md-12">
-                <thead>
-                    <tr>
-                        <th>Amount</th>
-                        <th>Time</th>
-                        <th>Date</th>
-                        <th>Category</th>
-                        <th><span style="color: red;">Delete</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach (var transaction in Model.SortedTransactions!)
-                {
-                    <tr data-bs-toggle="popover" data-bs-title="Description" data-bs-content="@transaction.Description">
-                        <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@transaction.Amount.ToString("F2") zł</td>
-                        <td>@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
-                        <td>@transaction.Date.ToString("dd.MM.yy")</td>
-                        <td>@transaction.Category</td>
-                        <td>
-                            <form method="post">
-                                <input type="hidden" name="id" value="@transaction.Category"/>
-                                <button type="submit" class="btn" name="action" value="delete" style="font-size: 0.9em;">❌</button>
-                            </form>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-        </div>
+    <div style="max-height: calc(100vh - 200px); overflow-y: auto;" class="table-responsive table-responsive-sm">
+        <table id="table1" class="table table-striped table-sm col-md-12">
+            <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th><span style="color: red;">Delete</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var transaction in Model.SortedTransactions!)
+            {
+                <tr data-bs-toggle="popover" data-bs-title="Description" data-bs-content="@transaction.Description">
+                    <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@transaction.Amount.ToString("F2") zł</td>
+                    <td>@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
+                    <td>@transaction.Date.ToString("dd.MM.yy")</td>
+                    <td>@transaction.Category</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-amount="@transaction.Amount" asp-route-category="@transaction.Category" asp-route-description="@transaction.Description" asp-route-datetime="@transaction.DateTime.ToString("yyyy-MM-ddTHH:mm:ss")">
+                            <button type="submit" class="btn" style="font-size: 0.9em;" onclick="return confirm('Are you sure you want to delete this transaction?')">❌</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
     </div>
 </div>
-
 
 

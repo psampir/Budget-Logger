@@ -1,163 +1,422 @@
 [
   {
-    "amt": -180.00,
-    "cat": "Rachunki",
-    "desc": "Op\u0142ata za pr\u0105d",
-    "datetime": "2023-10-25T18:00:00",
-    "type": 0
+    "amt": -69.5,
+    "cat": "Transport",
+    "desc": "Kupno kawy i czasopisma. Kupno kawy i czasopisma. Kupno kawy i czasopisma.",
+    "datetime": "2023-10-16T08:45:00"
   },
   {
-    "amt": 2200.00,
-    "cat": "Freelance",
-    "desc": "Projekt tworzenia stron internetowych",
-    "datetime": "2023-10-28T10:30:00",
-    "type": 1
-  },
-  {
-    "amt": -50.20,
-    "cat": "Rozrywka",
-    "desc": "Bilety do kina",
-    "datetime": "2023-10-30T20:15:00",
-    "type": 0
-  },
-  {
-    "amt": 150.00,
-    "cat": "Zwroty",
-    "desc": "Zwrot za prezent urodzinowy",
-    "datetime": "2023-11-03T14:00:00",
-    "type": 1
-  },
-  {
-    "amt": 4500.00,
+    "amt": 4500.0,
     "cat": "Pensja",
     "desc": "Wynagrodzenie za pa\u017Adziernik",
-    "datetime": "2023-10-20T12:00:00",
-    "type": 1
+    "datetime": "2023-10-20T12:00:00"
   },
   {
-    "amt": -190.00,
+    "amt": -320.75,
+    "cat": "Zakupy",
+    "desc": "Zakup ubra\u0144",
+    "datetime": "2023-10-22T15:20:00"
+  },
+  {
+    "amt": -180.0,
+    "cat": "Rachunki",
+    "desc": "Op\u0142ata za pr\u0105d",
+    "datetime": "2023-10-25T18:00:00"
+  },
+  {
+    "amt": 2200.0,
+    "cat": "Freelance",
+    "desc": "Projekt tworzenia stron internetowych",
+    "datetime": "2023-10-28T10:30:00"
+  },
+  {
+    "amt": -50.2,
+    "cat": "Rozrywka",
+    "desc": "Bilety do kina",
+    "datetime": "2023-10-30T20:15:00"
+  },
+  {
+    "amt": 150.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za prezent urodzinowy",
+    "datetime": "2023-11-03T14:00:00"
+  },
+  {
+    "amt": -1200.0,
+    "cat": "Jedzenie",
+    "desc": "Zakup wina - bia\u0142e wytrawne",
+    "datetime": "2023-10-15T21:30:00"
+  },
+  {
+    "amt": -85.3,
+    "cat": "Transport",
+    "desc": "Koszt przejazdu Uberem",
+    "datetime": "2023-10-16T08:45:00"
+  },
+  {
+    "amt": 4500.0,
+    "cat": "Pensja",
+    "desc": "Wynagrodzenie za pa\u017Adziernik",
+    "datetime": "2023-10-20T12:00:00"
+  },
+  {
+    "amt": -340.0,
+    "cat": "Zakupy",
+    "desc": "Zakup but\u00F3w",
+    "datetime": "2023-10-22T15:20:00"
+  },
+  {
+    "amt": -190.0,
     "cat": "Rachunki",
     "desc": "Op\u0142ata za gaz",
-    "datetime": "2023-10-25T18:00:00",
-    "type": 0
+    "datetime": "2023-10-25T18:00:00"
   },
   {
-    "amt": 2100.00,
+    "amt": 2100.0,
     "cat": "Freelance",
     "desc": "Projekt graficzny",
-    "datetime": "2023-10-28T10:30:00",
-    "type": 1
+    "datetime": "2023-10-28T10:30:00"
   },
   {
-    "amt": -55.80,
+    "amt": -55.8,
     "cat": "Rozrywka",
     "desc": "Bilety do teatru",
-    "datetime": "2023-10-30T20:15:00",
-    "type": 0
+    "datetime": "2023-10-30T20:15:00"
   },
   {
-    "amt": 170.00,
+    "amt": 170.0,
     "cat": "Zwroty",
     "desc": "Zwrot za prezent na \u015Blub",
-    "datetime": "2023-11-03T14:00:00",
-    "type": 1
+    "datetime": "2023-11-03T14:00:00"
   },
   {
-    "amt": -75.00,
+    "amt": -75.0,
     "cat": "Jedzenie",
     "desc": "Obiad w restauracji",
-    "datetime": "2023-11-05T19:45:00",
-    "type": 0
+    "datetime": "2023-11-05T19:45:00"
   },
   {
-    "amt": -1250000.00,
+    "amt": -1250000.0,
     "cat": "Inwestycje",
     "desc": "Zakup akcji",
-    "datetime": "2023-11-08T09:00:00",
-    "type": 1
+    "datetime": "2023-11-08T09:00:00"
   },
   {
     "amt": -35.75,
     "cat": "Transport",
     "desc": "Bilet kolejowy",
-    "datetime": "2023-12-12T08:30:00",
-    "type": 0
+    "datetime": "2023-12-12T08:30:00"
   },
   {
-    "amt": 5200.00,
+    "amt": 5200.0,
     "cat": "Pensja",
     "desc": "Wynagrodzenie za listopad",
-    "datetime": "2023-12-20T12:00:00",
-    "type": 1
+    "datetime": "2023-12-20T12:00:00"
   },
   {
-    "amt": -450.50,
+    "amt": -450.5,
     "cat": "Zakupy",
     "desc": "Zakup sprz\u0119tu elektronicznego",
-    "datetime": "2023-12-22T15:45:00",
-    "type": 0
+    "datetime": "2023-12-22T15:45:00"
   },
   {
-    "amt": -280.00,
+    "amt": -280.0,
     "cat": "Rachunki",
     "desc": "Op\u0142ata za wod\u0119",
-    "datetime": "2023-12-25T19:30:00",
-    "type": 0
+    "datetime": "2023-12-25T19:30:00"
   },
   {
-    "amt": 3100.00,
+    "amt": 3100.0,
     "cat": "Freelance",
     "desc": "Projekt tworzenia logo",
-    "datetime": "2023-12-28T11:15:00",
-    "type": 1
+    "datetime": "2023-12-28T11:15:00"
   },
   {
-    "amt": -1550.00,
+    "amt": -40.8,
+    "cat": "Rozrywka",
+    "desc": "Bilety na koncert",
+    "datetime": "2023-12-30T21:00:00"
+  },
+  {
+    "amt": 120.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za uszkodzony produkt",
+    "datetime": "2024-01-03T13:45:00"
+  },
+  {
+    "amt": -1550.0,
     "cat": "Jedzenie",
     "desc": "Zakup produkt\u00F3w spo\u017Cywczych",
-    "datetime": "2023-12-12T08:30:00",
-    "type": 0
+    "datetime": "2023-12-12T08:30:00"
   },
   {
     "amt": -70.25,
     "cat": "Transport",
     "desc": "Przejazd taks\u00F3wk\u0105",
-    "datetime": "2023-12-15T10:00:00",
-    "type": 0
+    "datetime": "2023-12-15T10:00:00"
   },
   {
-    "amt": 5200.00,
+    "amt": 5200.0,
     "cat": "Pensja",
     "desc": "Wynagrodzenie za listopad",
-    "datetime": "2023-12-20T12:00:00",
-    "type": 1
+    "datetime": "2023-12-20T12:00:00"
   },
   {
-    "amt": -410.00,
+    "amt": -410.0,
     "cat": "Zakupy",
     "desc": "Zakup artyku\u0142\u00F3w gospodarstwa domowego",
-    "datetime": "2023-12-22T15:45:00",
-    "type": 0
+    "datetime": "2023-12-22T15:45:00"
   },
   {
-    "amt": -230.00,
+    "amt": -230.0,
     "cat": "Rachunki",
     "desc": "Op\u0142ata za gaz",
-    "datetime": "2023-12-25T19:30:00",
-    "type": 0
+    "datetime": "2023-12-25T19:30:00"
   },
   {
-    "amt": 2800.00,
+    "amt": 2800.0,
     "cat": "Freelance",
     "desc": "Projekt ilustracji",
-    "datetime": "2023-12-28T11:15:00",
-    "type": 1
+    "datetime": "2023-12-28T11:15:00"
   },
   {
-    "amt": -45.00,
+    "amt": -45.0,
     "cat": "Rozrywka",
     "desc": "Bilety do zoo",
-    "datetime": "2023-12-30T21:00:00",
-    "type": 0
+    "datetime": "2023-12-30T21:00:00"
+  },
+  {
+    "amt": 75.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za niezadowalaj\u0105cy produkt",
+    "datetime": "2024-01-03T13:45:00"
+  },
+  {
+    "amt": -90.5,
+    "cat": "Jedzenie",
+    "desc": "Obiad w restauracji",
+    "datetime": "2024-01-05T20:30:00"
+  },
+  {
+    "amt": -1750000.0,
+    "cat": "Inwestycje",
+    "desc": "Zakup obligacji",
+    "datetime": "2024-01-08T09:30:00"
+  },
+  {
+    "amt": -25.5,
+    "cat": "Transport",
+    "desc": "Bilet autobusowy",
+    "datetime": "2024-10-16T08:45:00"
+  },
+  {
+    "amt": 4500.0,
+    "cat": "Pensja",
+    "desc": "Wynagrodzenie za pa\u017Adziernik",
+    "datetime": "2024-10-20T12:00:00"
+  },
+  {
+    "amt": -320.75,
+    "cat": "Zakupy",
+    "desc": "Zakup ubra\u0144",
+    "datetime": "2024-10-22T15:20:00"
+  },
+  {
+    "amt": -180.0,
+    "cat": "Rachunki",
+    "desc": "Op\u0142ata za pr\u0105d",
+    "datetime": "2024-10-25T18:00:00"
+  },
+  {
+    "amt": 2200.0,
+    "cat": "Freelance",
+    "desc": "Projekt tworzenia stron internetowych",
+    "datetime": "2024-10-28T10:30:00"
+  },
+  {
+    "amt": -50.2,
+    "cat": "Rozrywka",
+    "desc": "Bilety do kina",
+    "datetime": "2024-10-30T20:15:00"
+  },
+  {
+    "amt": 150.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za prezent urodzinowy",
+    "datetime": "2024-11-03T14:00:00"
+  },
+  {
+    "amt": -1200.0,
+    "cat": "Jedzenie",
+    "desc": "Zakup wina - bia\u0142e wytrawne",
+    "datetime": "2024-10-15T21:30:00"
+  },
+  {
+    "amt": -85.3,
+    "cat": "Transport",
+    "desc": "Koszt przejazdu Uberem",
+    "datetime": "2024-10-16T08:45:00"
+  },
+  {
+    "amt": 4500.0,
+    "cat": "Pensja",
+    "desc": "Wynagrodzenie za pa\u017Adziernik",
+    "datetime": "2024-10-20T12:00:00"
+  },
+  {
+    "amt": -340.0,
+    "cat": "Zakupy",
+    "desc": "Zakup but\u00F3w",
+    "datetime": "2024-10-22T15:20:00"
+  },
+  {
+    "amt": -190.0,
+    "cat": "Rachunki",
+    "desc": "Op\u0142ata za gaz",
+    "datetime": "2024-10-25T18:00:00"
+  },
+  {
+    "amt": 2100.0,
+    "cat": "Freelance",
+    "desc": "Projekt graficzny",
+    "datetime": "2024-10-28T10:30:00"
+  },
+  {
+    "amt": -55.8,
+    "cat": "Rozrywka",
+    "desc": "Bilety do teatru",
+    "datetime": "2024-10-30T20:15:00"
+  },
+  {
+    "amt": 170.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za prezent na \u015Blub",
+    "datetime": "2024-11-03T14:00:00"
+  },
+  {
+    "amt": -75.0,
+    "cat": "Jedzenie",
+    "desc": "Obiad w restauracji",
+    "datetime": "2024-11-05T19:45:00"
+  },
+  {
+    "amt": -1250000.0,
+    "cat": "Inwestycje",
+    "desc": "Zakup akcji",
+    "datetime": "2024-11-08T09:00:00"
+  },
+  {
+    "amt": -35.75,
+    "cat": "Transport",
+    "desc": "Bilet kolejowy",
+    "datetime": "2024-12-12T08:30:00"
+  },
+  {
+    "amt": 5200.0,
+    "cat": "Pensja",
+    "desc": "Wynagrodzenie za listopad",
+    "datetime": "2024-12-20T12:00:00"
+  },
+  {
+    "amt": -450.5,
+    "cat": "Zakupy",
+    "desc": "Zakup sprz\u0119tu elektronicznego",
+    "datetime": "2024-12-22T15:45:00"
+  },
+  {
+    "amt": -280.0,
+    "cat": "Rachunki",
+    "desc": "Op\u0142ata za wod\u0119",
+    "datetime": "2024-12-25T19:30:00"
+  },
+  {
+    "amt": 3100.0,
+    "cat": "Freelance",
+    "desc": "Projekt tworzenia logo",
+    "datetime": "2024-12-28T11:15:00"
+  },
+  {
+    "amt": 120.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za uszkodzony produkt",
+    "datetime": "2024-01-03T13:45:00"
+  },
+  {
+    "amt": -1550.0,
+    "cat": "Jedzenie",
+    "desc": "Zakup produkt\u00F3w spo\u017Cywczych",
+    "datetime": "2024-12-12T08:30:00"
+  },
+  {
+    "amt": -70.25,
+    "cat": "Transport",
+    "desc": "Przejazd taks\u00F3wk\u0105",
+    "datetime": "2024-12-15T10:00:00"
+  },
+  {
+    "amt": 5200.0,
+    "cat": "Pensja",
+    "desc": "Wynagrodzenie za listopad",
+    "datetime": "2024-12-20T12:00:00"
+  },
+  {
+    "amt": -410.0,
+    "cat": "Zakupy",
+    "desc": "Zakup artyku\u0142\u00F3w gospodarstwa domowego",
+    "datetime": "2024-12-22T15:45:00"
+  },
+  {
+    "amt": -230.0,
+    "cat": "Rachunki",
+    "desc": "Op\u0142ata za gaz",
+    "datetime": "2024-12-25T19:30:00"
+  },
+  {
+    "amt": 2800.0,
+    "cat": "Freelance",
+    "desc": "Projekt ilustracji",
+    "datetime": "2024-12-28T11:15:00"
+  },
+  {
+    "amt": 75.0,
+    "cat": "Zwroty",
+    "desc": "Zwrot za niezadowalaj\u0105cy produkt",
+    "datetime": "2024-01-03T13:45:00"
+  },
+  {
+    "amt": -90.5,
+    "cat": "Jedzenie",
+    "desc": "Obiad w restauracji",
+    "datetime": "2024-01-05T20:30:00"
+  },
+  {
+    "amt": -1750000.0,
+    "cat": "Inwestycje",
+    "desc": "Zakup obligacji",
+    "datetime": "2024-01-08T09:30:00"
+  },
+  {
+    "amt": 4,
+    "cat": "groceries",
+    "desc": "4",
+    "datetime": "0001-01-01T00:00:00"
+  },
+  {
+    "amt": 4,
+    "cat": "salary",
+    "desc": "4",
+    "datetime": "0001-01-01T00:00:00"
+  },
+  {
+    "amt": 300,
+    "cat": "interest",
+    "desc": "Projekt C#",
+    "datetime": "2023-12-16T00:35:00"
+  },
+  {
+    "amt": -300,
+    "cat": "Bills",
+    "desc": "cc",
+    "datetime": "2025-12-16T00:45:00"
   }
 ]

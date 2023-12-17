@@ -63,15 +63,15 @@ namespace BudgetLogger.Services
         }
         
         // Method to add a transaction to the JSON file
-        public void AddTransaction(decimal amount, string category, string description, DateTime datetime, TransactionType type)
+        public void AddTransaction(decimal amount, string category, string description, DateTime datetime)
         {
             // Read existing transactions from the JSON file
             var transactions = GetTransactions() ?? new List<Transaction>();
 
             // Create a new instance of Transaction
-            var newTransaction = new Transaction(amount, category, description, datetime, type);
+            var newTransaction = new Transaction(amount, category, description, datetime);
 
-            // Add a new transaction
+            // Add a new transaction to the list
             transactions.Add(newTransaction);
 
             // Serialize and write to JSON

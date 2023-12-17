@@ -5,9 +5,10 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="manifest" href="manifest.json"/>
-    <link href="favicon-180.png" rel="apple-touch-icon-precomposed"/>
-    <link href="favicon-192.png" rel="icon"/>
-    <link href="favicon-120-precomposed.png" rel="icon"/>
+    <link href="favicons/favicon.ico" rel="icon"/>
+    <link href="favicons/favicon-180.png" rel="apple-touch-icon-precomposed" sizes="180x180"/>
+    <link href="favicons/favicon-192.png" rel="icon" sizes="192x192"/>
+    <link href="favicons/favicon-120-precomposed.png" rel="icon" sizes="120x120"/>
     
     <title>Budget Logger</title>
     
@@ -22,73 +23,42 @@
     
 </head>
 <body>
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">💸Budget Logger</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">History</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Summary">Summary</a>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Bootstrap modal trigger -->
-                            <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#addTransactionModal">New</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/License">License</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Modal -->
-    <div class="modal fade" id="addTransactionModal" tabindex="-1" aria-labelledby="addTransactionModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addTransactionModalLabel">Add a new transaction:</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Your form here -->
-                    <form id="transactionForm">
-                        <div class="mb-3">
-                            <label for="amount" class="form-label">Amount</label>
-                            <input style="font-size: 16px" type="number" class="form-control" id="amount" name="amount">
-                        </div>
-                        <!-- Add other form fields for category, description, date, etc. -->
-                        <!-- Remember to add input fields for other transaction properties -->
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </form>
-                </div>
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index">💸Budget Logger</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Transactions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Summary">Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/License">License</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
+</header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <script src="lib/jquery-validation/dist/"></script>
-    <script src="js/inputValidator.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 
 @await RenderSectionAsync("Scripts", required: false)
 </body>

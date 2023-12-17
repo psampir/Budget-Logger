@@ -1,9 +1,9 @@
-// Sprawdzenie, czy strona jest otwarta jako aplikacja internetowa na iPhone'ie
+// Function that checks whether the page is open as an iPhone web app
 function isWebAppOniPhone() {
     return (window.navigator.standalone && /iPhone/.test(window.navigator.userAgent));
 }
 
-// Jeśli strona jest otwarta jako aplikacja internetowa na iPhone'ie, zmień max-height na 105px
+// If so, it changes max-height of the table to 100vh - 105px
 if (isWebAppOniPhone()) {
     const divElement = document.querySelector('.table-responsive.table-responsive-sm');
     if (divElement) {

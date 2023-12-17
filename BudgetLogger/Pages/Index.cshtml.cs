@@ -1,3 +1,4 @@
+using System.Globalization;
 using BudgetLogger.Models;
 using BudgetLogger.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,20 @@ public class IndexModel(ILogger<IndexModel> logger,
     public IActionResult OnPostDelete(decimal amount, string category, string description, DateTime datetime)
     {
         TransactionService.DeleteTransaction(amount, category, description, datetime);
+        return RedirectToPage("Index");
+    }
+    
+    public IActionResult OnPostAdd(decimal amount, string category, string description, string date, string time, string transactionType)
+    {
+        if (transactionType == "expense") amount *= -1;
+        
+        amount = Math.Truncate(amount * 100) / 100;
+        
+        var dateFormatted = DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        var timeFormatted = DateTime.ParseExact(time, "HH:mm", CultureInfo.InvariantCulture);
+        var datetime = dateFormatted.Add(timeFormatted.TimeOfDay);
+        
+        TransactionService.AddTransaction(amount, category, description, datetime);
         return RedirectToPage("Index");
     }
 }

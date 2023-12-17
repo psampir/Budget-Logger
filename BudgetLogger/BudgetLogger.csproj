@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="wwwroot\favicon.ico" />
+      <None Include="wwwroot\favicons\favicon.ico" />
     </ItemGroup>
 
 </Project>

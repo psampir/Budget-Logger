@@ -3,36 +3,23 @@ using System.Text.Json.Serialization;
 
 namespace BudgetLogger.Models;
 
-public class Transaction
- {
-     public Transaction(decimal amount, string category, string description, DateTime dateTime, TransactionType type)
-     {
-         Amount = amount;
-         Category = category;
-         Description = description;
-         DateTime = dateTime;
-         Type = type;
-     }
-
-     [JsonPropertyName("amt")]
+public class Transaction(decimal amount, string category, string description, DateTime dateTime)
+{
+    [JsonPropertyName("amt")]
      [JsonRequired]
-     public decimal Amount { get; set; }
-     
+     public decimal Amount { get; set; } = amount;
+
      [JsonPropertyName("cat")]
      [JsonRequired]
-     public string Category { get; set; }
-     
+     public string Category { get; set; } = category;
+
      [JsonPropertyName("desc")]
      [JsonRequired]
-     public string Description { get; set; }
-     
+     public string Description { get; set; } = description;
+
      [JsonPropertyName("datetime")]
      [JsonRequired]
-     public DateTime DateTime { get; set; }
-     
-     [JsonPropertyName("type")]
-     [JsonRequired]
-     public TransactionType Type { get; set; }
+     public DateTime DateTime { get; set; } = dateTime;
      
      [JsonIgnore]
      public DateTime Date => DateTime.Date;
@@ -42,11 +29,4 @@ public class Transaction
  
      public override string ToString() => JsonSerializer.Serialize<Transaction>(this);
  }
-
-public enum TransactionType
-{
-    Expense,
-    Income
-}
-
 

@@ -1,18 +1,19 @@
-﻿// Function to hide popovers on scroll
-// Function to hide popovers on scroll within the specific div
+﻿// Function to hide popovers on scroll within the specific div
 function hidePopoversOnDivScroll() {
     const divElement = document.querySelector('#x'); // Change this selector to match your specific div
-    divElement.addEventListener('scroll', function () {
-        const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
-        popovers.forEach(popover => {
-            const popoverInstance = bootstrap.Popover.getInstance(popover);
-            if (popoverInstance && popoverInstance._activeTrigger.click) {
-                popoverInstance.hide();
-            }
-        });
-    });
+    divElement.addEventListener('scroll', hidePopovers);
+    divElement.addEventListener('touchmove', hidePopovers); // Adding touchmove event for touch-based devices
 }
 
+function hidePopovers() {
+    const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
+    popovers.forEach(popover => {
+        const popoverInstance = bootstrap.Popover.getInstance(popover);
+        if (popoverInstance && popoverInstance._activeTrigger.click) {
+            popoverInstance.hide();
+        }
+    });
+}
 
 // Initializing Bootstrap Popovers
 const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
@@ -30,8 +31,6 @@ $(document).ready(function () {
         $('[data-bs-toggle="popover"]').not(this).popover('hide');
     });
 
-    // Hiding popovers on scroll
-    $(window).on('scroll', function () {
-        hidePopoversOnScroll();
-    });
+    // Hiding popovers on scroll or touchmove
+    hidePopoversOnDivScroll();
 });

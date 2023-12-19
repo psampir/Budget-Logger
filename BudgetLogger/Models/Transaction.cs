@@ -3,9 +3,10 @@ using System.Text.Json.Serialization;
 
 namespace BudgetLogger.Models;
 
-public class Transaction(decimal amount, string category, string description, DateTime dateTime)
+// Represents a transaction entity with specific properties
+public class Transaction(decimal amount, string category, string description, DateTime dateTime) // .NET Primary constructor initializes Transaction properties
 {
-    [JsonPropertyName("amt")]
+    [JsonPropertyName("amt")] // Serialized property names for JSON output
      public decimal Amount { get; } = amount;
 
      [JsonPropertyName("cat")]
@@ -17,12 +18,13 @@ public class Transaction(decimal amount, string category, string description, Da
      [JsonPropertyName("datetime")]
      public DateTime DateTime { get; } = dateTime;
      
-     [JsonIgnore]
+     [JsonIgnore] // Ignores serialization for Date and Time properties
      public DateTime Date => DateTime.Date;
 
      [JsonIgnore]
      public TimeSpan Time => DateTime.TimeOfDay;
  
+     // Returns a JSON string representation of the Transaction object
      public override string ToString() => JsonSerializer.Serialize(this);
  }
 

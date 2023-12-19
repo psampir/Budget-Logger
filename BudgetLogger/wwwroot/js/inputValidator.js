@@ -78,7 +78,7 @@ function updateCategories() {
 
     // Define categories based on the selected transaction type
     const categories = {
-        income: ['Salary', 'Freelance', 'Investments', 'Rental Income', 'Interest', 'Bonus', 'Gift', 'Sales', 'Refunds', 'Dividends', 'Awards', 'Grants', 'Royalties', 'Tips', 'Others'],
+        income: ['Salary', 'Freelance', 'Investments', 'Rental Income', 'Interest', 'Bonus', 'Gift', 'Sales', 'Refunds', 'Dividends', 'Awards', 'Grants', 'Royalties', 'Tips', 'Commissions', 'Others'],
         expense: ['Groceries', 'Utilities', 'Transportation', 'Entertainment', 'Healthcare', 'Insurance', 'Education', 'Dining', 'Shopping', 'Bills', 'Travel', 'Gifts', 'Investments', 'Savings', 'Housing', 'Others']
     };
 

@@ -1,56 +1,26 @@
 [
   {
-    "amt": 2000,
-    "cat": "Others",
-    "desc": "Z innego konta",
-    "datetime": "2023-12-17T18:41:00"
+    "amt": 1,
+    "cat": "Salary",
+    "desc": "1",
+    "datetime": "2023-12-19T00:29:00"
   },
   {
-    "amt": -10,
+    "amt": -2,
     "cat": "Groceries",
-    "desc": "Piwo",
-    "datetime": "2023-12-17T18:57:00"
+    "desc": "2",
+    "datetime": "2023-12-19T00:30:00"
   },
   {
-    "amt": -50,
-    "cat": "Groceries",
-    "desc": "pizza",
-    "datetime": "2023-12-15T19:23:00"
+    "amt": 3,
+    "cat": "Salary",
+    "desc": "3",
+    "datetime": "2023-12-19T00:30:00"
   },
   {
-    "amt": -3,
-    "cat": "Groceries",
-    "desc": "x",
-    "datetime": "2023-12-18T08:37:00"
-  },
-  {
-    "amt": -4,
-    "cat": "Groceries",
+    "amt": 4,
+    "cat": "Investments",
     "desc": "4",
-    "datetime": "2023-12-18T21:12:00"
-  },
-  {
-    "amt": 4000,
-    "cat": "Salary",
-    "desc": "kopanie row\u00F3w",
-    "datetime": "2023-10-18T21:55:00"
-  },
-  {
-    "amt": 100,
-    "cat": "Salary",
-    "desc": "x",
-    "datetime": "2023-12-19T13:08:00"
-  },
-  {
-    "amt": 2001,
-    "cat": "Salary",
-    "desc": "lel",
-    "datetime": "2023-12-19T16:07:00"
-  },
-  {
-    "amt": -300,
-    "cat": "Healthcare",
-    "desc": "ortodonta",
-    "datetime": "2023-12-19T16:54:00"
+    "datetime": "2023-12-19T00:30:00"
   }
 ]

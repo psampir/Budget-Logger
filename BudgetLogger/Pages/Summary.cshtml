@@ -1,59 +1,83 @@
 @page
 @model SummaryModel
 
-<h2>Current balance: @Model.GetBalance() zł</h2>
-
-<form id="balanceForm">
-    <label for="startDate">Show summary between</label><br/>
-    <input required type="date" id="startDate" name="startDate">
-
-    <label for="endDate">and</label>
-    <input required type="date" id="endDate" name="endDate"><br/><br/>
-
-    <button type="submit">Show</button><br/><br/>
-</form>
-
 @{
+    var balance = Model.GetBalance();
     string startDateParam = Request.Query["startDate"]!;
     string endDateParam = Request.Query["endDate"]!;
+}
 
+<div class="row">
+    <div class="col text-center">
+        <h5 class="mb-1">Current balance:</h5>
+        <h1 style="color: @(balance == 0 ? "black" : balance < 0 ? "red" : "green"); font-size: 2.5em;">@balance.ToString("F2") zł</h1>
+        <div class="container mt-3 border rounded p-3">
+            <form id="balanceForm">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label style="font-weight: bolder" for="startDate" class="form-label">From</label>
+                        <input class="form-control" required type="date" id="startDate" name="startDate">
+                    </div>
+                    <div class="col">
+                        <label style="font-weight: bolder" for="endDate" class="form-label">To</label>
+                        <input class="form-control" required type="date" id="endDate" name="endDate">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <button style="font-weight: bold" class="btn btn-success btn-sm" type="submit">Show summary between the dates</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@{
     if (DateTime.TryParse(startDateParam, out var startDate) && DateTime.TryParse(endDateParam, out var endDate))
     {
-        <p>Balance between @startDate.Date.ToString("dd.MM.yyyy") and @endDate.Date.ToString("dd.MM.yyyy"): <b>@Model.GetBalance(@startDate, @endDate) zł</b></p>
-        <p>Highest income categories:</p>
-        <ul>
-            @foreach (var entry in Model.GetCategories(startDate, endDate).Item1)
-            {
-                <li>@entry.Key: +@entry.Value zł</li>
-            }
-        </ul>
-        <p>Highest expense categories:</p>
-        <ul>
-            @foreach (var entry in Model.GetCategories(startDate, endDate).Item2)
-            {
-                <li>@entry.Key: @entry.Value zł</li>
-            }
-        </ul>
+        var getCategories = Model.GetCategories(startDate, endDate);
+        
+        <div class="row mt-2">
+            <div class="col-12 text-center">
+                <div class="container border rounded pt-3"> 
+                    <h5 class="border-text">Summary between @startDate.Date.ToString("dd.MM.yyyy")&nbsp;and&nbsp;@endDate.Date.ToString("dd.MM.yyyy"):</h5>
+                    <p>Balance: <b style="color: @(balance == 0 ? "black" : balance < 0 ? "red" : "green")">@Model.GetBalance(@startDate, @endDate) zł</b></p>
+                    <div id="y" class="row mt-3 border-top pt-2 rounded" style="max-height: calc(61vh - 195px); overflow-y: auto;">
+                        <div class="col-md-6">
+                            <h6>@(getCategories.Item1.Any() ? "Top income sources:" : "No income recorded.")</h6>
+                            <table class="table table-sm table-striped-custom-green">
+                                <tbody>
+                                @foreach (var entry in getCategories.Item1)
+                                {
+                                    <tr>
+                                        <td style="text-align: left">@entry.Key:</td>
+                                        <td style="text-align: right">@entry.Value.ToString("F2") zł</td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>@(getCategories.Item2.Any() ? "Top spending categories:" : "No expenditure recorded.")</h6>
+                            <table class="table table-sm table-striped-custom-red">
+                                <tbody>
+                                @foreach (var entry in getCategories.Item2)
+                                {
+                                    <tr>
+                                        <td style="text-align: left">@entry.Key:</td>
+                                        <td style="text-align: right">@Math.Abs(entry.Value).ToString("F2") zł</td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 }
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const today = new Date();
-        const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-
-        const startDateInput = document.getElementById('startDate');
-        const endDateInput = document.getElementById('endDate');
-
-        startDateInput.value = formatDate(firstDayOfMonth);
-        endDateInput.value = formatDate(today);
-
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = (date.getMonth() + 1).toString().padStart(2, '0');
-            const day = date.getDate().toString().padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-
-    });
-</script>
+<script src="js/isWebAppOniPhone.js"></script>
+<script src="js/setDefaultDate.js"></script>

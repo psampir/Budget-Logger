@@ -6,29 +6,31 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BudgetLogger.Pages;
 
-public class IndexModel(ILogger<IndexModel> logger,
-        JsonFileTransactionService transactionService)
-    : PageModel
+public class IndexModel(ILogger<IndexModel> logger, JsonFileTransactionService transactionService) : PageModel
 {
     public JsonFileTransactionService TransactionService = transactionService;
     public List<Transaction>? Transactions { get; private set; }
     public List<Transaction>? SortedTransactions { get; private set; }
 
-
+    // Retrieves transactions and sorts them by date and time in descending order
     public void OnGet()
     {
         Transactions = TransactionService.GetTransactions();
-        SortedTransactions = (from transaction in Transactions
+        SortedTransactions = (
+            from transaction in Transactions
             orderby transaction.DateTime descending
-            select transaction).ToList();
+            select transaction
+        ).ToList();
     }
     
+    // Handles deleting a transaction based on specified parameters and redirects to the Index page
     public IActionResult OnPostDelete(decimal amount, string category, string description, DateTime datetime)
     {
         TransactionService.DeleteTransaction(amount, category, description, datetime);
         return RedirectToPage("Index");
     }
     
+    // Handles adding a new transaction with specified parameters and redirects to the Index page
     public IActionResult OnPostAdd(decimal amount, string category, string description, string date, string time, string transactionType)
     {
         if (transactionType == "expense") amount *= -1;

@@ -1,10 +1,11 @@
-﻿// Function to hide popovers on scroll within the specific div
+﻿// Function to hide popovers on scroll
 function hidePopoversOnDivScroll() {
     const divElement = document.querySelector('#x'); // Change this selector to match your specific div
     divElement.addEventListener('scroll', hidePopovers);
     divElement.addEventListener('touchmove', hidePopovers); // Adding touchmove event for touch-based devices
 }
 
+// Function to hide popovers on click
 function hidePopovers() {
     const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
     popovers.forEach(popover => {

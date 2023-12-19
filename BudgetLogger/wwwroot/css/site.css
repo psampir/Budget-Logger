@@ -20,3 +20,19 @@ html {
 body {
   margin-bottom: 0px;
 }
+
+.table-striped-custom-green tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 255, 0, 0.14);
+}
+
+.table-striped-custom-green tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 255, 0, 0.07);
+}
+
+.table-striped-custom-red tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 0, 0, 0.14);
+}
+
+.table-striped-custom-red tbody tr:nth-of-type(even) {
+  background-color: rgba(255, 0, 0, 0.07);
+}

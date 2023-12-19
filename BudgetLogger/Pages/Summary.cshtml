@@ -1,0 +1,59 @@
+@page
+@model SummaryModel
+
+<h2>Current balance: @Model.GetBalance() zł</h2>
+
+<form id="balanceForm">
+    <label for="startDate">Show summary between</label><br/>
+    <input required type="date" id="startDate" name="startDate">
+
+    <label for="endDate">and</label>
+    <input required type="date" id="endDate" name="endDate"><br/><br/>
+
+    <button type="submit">Show</button><br/><br/>
+</form>
+
+@{
+    string startDateParam = Request.Query["startDate"]!;
+    string endDateParam = Request.Query["endDate"]!;
+
+    if (DateTime.TryParse(startDateParam, out var startDate) && DateTime.TryParse(endDateParam, out var endDate))
+    {
+        <p>Balance between @startDate.Date.ToString("dd.MM.yyyy") and @endDate.Date.ToString("dd.MM.yyyy"): <b>@Model.GetBalance(@startDate, @endDate) zł</b></p>
+        <p>Highest income categories:</p>
+        <ul>
+            @foreach (var entry in Model.GetCategories(startDate, endDate).Item1)
+            {
+                <li>@entry.Key: +@entry.Value zł</li>
+            }
+        </ul>
+        <p>Highest expense categories:</p>
+        <ul>
+            @foreach (var entry in Model.GetCategories(startDate, endDate).Item2)
+            {
+                <li>@entry.Key: @entry.Value zł</li>
+            }
+        </ul>
+    }
+}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date();
+        const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+        const startDateInput = document.getElementById('startDate');
+        const endDateInput = document.getElementById('endDate');
+
+        startDateInput.value = formatDate(firstDayOfMonth);
+        endDateInput.value = formatDate(today);
+
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const day = date.getDate().toString().padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+    });
+</script>

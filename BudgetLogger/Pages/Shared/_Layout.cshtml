@@ -16,11 +16,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/BudgetLogger.styles.css" asp-append-version="true"/>
-    
-    <!-- Add to homescreen -->
-    <script src="lib/addtohomescreen.min.js"></script>
-    <script>addToHomescreen()</script>
-    
 </head>
 <body>
 <header>
@@ -38,7 +33,11 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="/Index">Transactions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Summary">Summary</a>
+                        @{
+                            var firstDayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                            var today = DateTime.Today;
+                        }
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Summary" asp-route-startDate="@firstDayOfMonth.ToString("yyyy-MM-dd")" asp-route-endDate="@today.ToString("yyyy-MM-dd")">Summary</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/License">License</a>
@@ -55,10 +54,10 @@
     </main>
 </div>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
 <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+@* <script src="~/js/popovers.js" asp-append-version="true"></script> *@
 
 @await RenderSectionAsync("Scripts", required: false)
 </body>

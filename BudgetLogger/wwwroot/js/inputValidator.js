@@ -46,23 +46,24 @@ $(document).ready(function() {
 });
 
 // ============================= Setting default time & date values to now
-
+let now = new Date();
+function updateCurrentDateTime() {
 // Getting the current time and date
-const now = new Date();
+    now = new Date();
 
 // Formatting the date to be used in the "date" field
-const currentDate = now.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    const currentDate = now.toISOString().split('T')[0]; // Format YYYY-MM-DD
 
 // Formatting the time to be used in the "time" field
-let hours = now.getHours();
-let minutes = now.getMinutes();
-
-// Formatting to "HH:MM" format
-const currentTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    
 // Setting values for the "time" and "date" fields in the form
-document.getElementById('time').value = currentTime;
-document.getElementById('date').value = currentDate;
+    document.getElementById('time').value = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`; // Formatting to "HH:MM" format
+    document.getElementById('date').value = currentDate;
+}
+
+document.getElementById('addButton').addEventListener('click', updateCurrentDateTime);
 
 // ============================= Changing "Category" values based on transaction type
 

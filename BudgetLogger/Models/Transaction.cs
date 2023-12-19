@@ -6,20 +6,16 @@ namespace BudgetLogger.Models;
 public class Transaction(decimal amount, string category, string description, DateTime dateTime)
 {
     [JsonPropertyName("amt")]
-     [JsonRequired]
-     public decimal Amount { get; set; } = amount;
+     public decimal Amount { get; } = amount;
 
      [JsonPropertyName("cat")]
-     [JsonRequired]
-     public string Category { get; set; } = category;
+     public string Category { get; } = category;
 
      [JsonPropertyName("desc")]
-     [JsonRequired]
-     public string Description { get; set; } = description;
+     public string Description { get; } = description;
 
      [JsonPropertyName("datetime")]
-     [JsonRequired]
-     public DateTime DateTime { get; set; } = dateTime;
+     public DateTime DateTime { get; } = dateTime;
      
      [JsonIgnore]
      public DateTime Date => DateTime.Date;
@@ -27,6 +23,6 @@ public class Transaction(decimal amount, string category, string description, Da
      [JsonIgnore]
      public TimeSpan Time => DateTime.TimeOfDay;
  
-     public override string ToString() => JsonSerializer.Serialize<Transaction>(this);
+     public override string ToString() => JsonSerializer.Serialize(this);
  }
 

@@ -35,7 +35,9 @@ function hidePopovers() {
 // Function to hide popovers on button click by ID
 function hidePopoversOnButtonClick(buttonID) {
     const button = document.getElementById(buttonID);
-    button.addEventListener('click', hidePopovers);
+    if (button) {
+        button.addEventListener('click', hidePopovers);
+    }
 }
 
 // Handling Popover Behavior

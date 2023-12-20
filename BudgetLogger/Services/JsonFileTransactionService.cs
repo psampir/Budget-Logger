@@ -13,7 +13,7 @@ namespace BudgetLogger.Services
         private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "data", "transactions.json");
 
         // Method to retrieve transactions from the JSON file
-        public List<Transaction>? GetTransactions()
+        public List<Transaction> GetTransactions()
         {
             // Using statement to open and read the JSON file
             using var jsonFileReader = File.OpenText(JsonFileName);
@@ -23,7 +23,7 @@ namespace BudgetLogger.Services
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true // Option to make property name matching case-insensitive during deserialization
-                });
+                }) ?? throw new InvalidOperationException("Failed to deserialize JSON content into a list of Transaction objects."); //If null throw exception
         }
 
         // Method to serialize write the updated JSON content back to the file
@@ -43,7 +43,7 @@ namespace BudgetLogger.Services
         public void DeleteTransaction(decimal amount, string category, string description, DateTime datetime)
         {
             // Read existing transactions from the JSON file
-            var transactions = GetTransactions() ?? new List<Transaction>();
+            var transactions = GetTransactions();
 
             // Find and remove the transaction with the specified amount, category, description and datetime
             var transactionToRemove = (
@@ -66,7 +66,7 @@ namespace BudgetLogger.Services
         public void AddTransaction(decimal amount, string category, string description, DateTime datetime)
         {
             // Read existing transactions from the JSON file
-            var transactions = GetTransactions() ?? new List<Transaction>();
+            var transactions = GetTransactions();
 
             // Create a new instance of Transaction
             var newTransaction = new Transaction(amount, category, description, datetime);

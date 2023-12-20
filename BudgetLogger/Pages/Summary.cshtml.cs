@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BudgetLogger.Pages;
 
+// Inherits from base class for models in Razor Pages
 public class SummaryModel(ILogger<SummaryModel> logger, JsonFileTransactionService transactionService) : PageModel
 {
-    
     public JsonFileTransactionService TransactionService = transactionService;
-    public List<Transaction>? Transactions { get; private set; }
+    public List<Transaction>? Transactions { get; private set; } //value can only be changed by OnGet()
 
     // Calculates the total balance from all transactions
     public decimal GetBalance()

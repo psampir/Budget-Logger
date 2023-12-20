@@ -1,11 +1,27 @@
-﻿// Function to hide popovers on scroll
-function hidePopoversOnDivScroll() {
-    const divElement = document.querySelector('#x'); // Change this selector to match your specific div
-    divElement.addEventListener('scroll', hidePopovers);
-    divElement.addEventListener('touchmove', hidePopovers); // Adding touchmove event for touch-based devices
+﻿// Function to show popovers on hover
+function showPopoversOnHover() {
+    const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
+    popovers.forEach(popover => {
+        const popoverInstance = bootstrap.Popover.getInstance(popover);
+        if (popoverInstance) {
+            popover.addEventListener('mouseenter', function() {
+                popoverInstance.show();
+            });
+            popover.addEventListener('mouseleave', function() {
+                popoverInstance.hide();
+            });
+        }
+    });
 }
 
-// Function to hide popovers on click
+// Function to hide popovers on scroll
+function hidePopoversOnDivScroll() {
+    const divElement = document.querySelector('#x');
+    divElement.addEventListener('scroll', hidePopovers);
+    divElement.addEventListener('touchmove', hidePopovers);
+}
+
+// Function to hide popovers
 function hidePopovers() {
     const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
     popovers.forEach(popover => {
@@ -16,11 +32,11 @@ function hidePopovers() {
     });
 }
 
-// Initializing Bootstrap Popovers
-const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl);
-});
+// Function to hide popovers on button click by ID
+function hidePopoversOnButtonClick(buttonID) {
+    const button = document.getElementById(buttonID);
+    button.addEventListener('click', hidePopovers);
+}
 
 // Handling Popover Behavior
 $(document).ready(function () {
@@ -34,4 +50,11 @@ $(document).ready(function () {
 
     // Hiding popovers on scroll or touchmove
     hidePopoversOnDivScroll();
+
+    // Hide popovers when clicking on a button with a specific ID
+    hidePopoversOnButtonClick('addButton');
+    hidePopoversOnButtonClick('deleteButton');
+
+    // Show popovers on hover
+    showPopoversOnHover();
 });

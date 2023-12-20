@@ -42,7 +42,7 @@
             <div class="col-12 text-center">
                 <div class="container border rounded pt-3"> 
                     <h5 class="border-text">Summary between @startDate.Date.ToString("dd.MM.yyyy")&nbsp;and&nbsp;@endDate.Date.ToString("dd.MM.yyyy"):</h5>
-                    <p>Balance: <b style="color: @(balance == 0 ? "black" : balance < 0 ? "red" : "green")">@Model.GetBalance(@startDate, @endDate) zł</b></p>
+                    <p>Balance: <b style="color: @(balance == 0 ? "black" : balance < 0 ? "red" : "green")">@Model.GetBalance(@startDate, @endDate).ToString("F2") zł</b></p>
                     <div id="y" class="row mt-3 border-top pt-2 rounded" style="max-height: calc(61vh - 195px); overflow-y: auto;">
                         <div class="col-md-6">
                             <h6>@(getCategories.Item1.Any() ? "Top income sources:" : "No income recorded.")</h6>
@@ -51,7 +51,7 @@
                                 @foreach (var entry in getCategories.Item1)
                                 {
                                     <tr>
-                                        <td style="text-align: left">@entry.Key:</td>
+                                        <td style="text-align: left">@entry.Key</td>
                                         <td style="text-align: right">@entry.Value.ToString("F2") zł</td>
                                     </tr>
                                 }
@@ -65,7 +65,7 @@
                                 @foreach (var entry in getCategories.Item2)
                                 {
                                     <tr>
-                                        <td style="text-align: left">@entry.Key:</td>
+                                        <td style="text-align: left">@entry.Key</td>
                                         <td style="text-align: right">@Math.Abs(entry.Value).ToString("F2") zł</td>
                                     </tr>
                                 }

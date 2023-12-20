@@ -16,7 +16,6 @@ $(document).ready(function() {
                 required: true
             },
             description: {
-                required: true,
                 maxlength: 60
             }
         },
@@ -35,7 +34,6 @@ $(document).ready(function() {
                 required: "Please enter date."
             },
             description: {
-                required: "Please enter description.",
                 maxlength: "Description cannot exceed 60 characters"
             }
         },

@@ -9,7 +9,7 @@ namespace BudgetLogger.Pages;
 public class IndexModel(ILogger<IndexModel> logger, JsonFileTransactionService transactionService) : PageModel
 {
     public JsonFileTransactionService TransactionService = transactionService;
-    public List<Transaction>? Transactions { get; private set; }
+    public List<Transaction>? Transactions { get; private set; } //value can only be changed by OnGet()
     public List<Transaction>? SortedTransactions { get; private set; }
 
     // Retrieves transactions and sorts them by date and time in descending order

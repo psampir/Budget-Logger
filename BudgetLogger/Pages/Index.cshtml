@@ -1,9 +1,6 @@
 ﻿@page
 @model IndexModel
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/js/popovers.js"></script>
-
 <div class="container" style="padding: 0 !important;">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 style="margin-bottom: 0">Transactions</h2>
@@ -28,7 +25,14 @@
                     <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@(transaction.Amount < 0 ? transaction.Amount.ToString("F2") : "+" + transaction.Amount.ToString("F2")) zł</td>
                     <td>@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
                     <td data-bs-toggle="popover" data-bs-title="Full date" data-bs-placement="top" data-bs-content="@transaction.Date.ToString("dd.MM.yyyy") (@transaction.Date.DayOfWeek)">@transaction.Date.ToString("dd.MM.yy")</td>
-                    <td data-bs-toggle="popover" data-bs-title="Description" data-bs-placement="top" data-bs-content="@transaction.Description">@transaction.Category</td>
+                    @if (!string.IsNullOrEmpty(transaction.Description))
+                    {
+                        <td style="text-decoration-line: underline" data-bs-toggle="popover" data-bs-title="Description" data-bs-placement="top" data-bs-content="@transaction.Description">@transaction.Category</td>
+                    }
+                    else
+                    {
+                        <td>@transaction.Category</td>
+                    }
                     <td>
                         <form method="post" asp-page-handler="Delete" asp-route-amount="@transaction.Amount" asp-route-category="@transaction.Category" asp-route-description="@transaction.Description" asp-route-datetime="@transaction.DateTime">
                             <button id="deleteButton" type="submit" class="btn" style="font-size: 0.9em;" onclick="return confirm('Are you sure you want to delete this @(transaction.Amount < 0 ? "expense" : "income") of @Math.Abs(transaction.Amount) zł?')">❌</button>
@@ -94,5 +98,7 @@
     </div>
 </div>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/popovers.js"></script>
 <script src="js/isWebAppOniPhone.js"></script>
 <script src="js/inputValidator.js"></script>

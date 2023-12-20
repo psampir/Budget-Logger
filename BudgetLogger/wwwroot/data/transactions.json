@@ -412,5 +412,11 @@
     "cat": "Groceries",
     "desc": null,
     "datetime": "2023-12-20T17:53:00"
+  },
+  {
+    "amt": -55,
+    "cat": "Groceries",
+    "desc": null,
+    "datetime": "2023-12-20T18:06:00"
   }
 ]

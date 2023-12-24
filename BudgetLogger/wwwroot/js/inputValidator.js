@@ -7,7 +7,7 @@ $(document).ready(function() {
                 required: true,
                 number: true,
                 min: 0.01,
-                max: 1000000,
+                max: 9999999.99,
             },
             time: {
                 required: true
@@ -24,7 +24,7 @@ $(document).ready(function() {
                 required: "Please enter amount.",
                 number: "Please enter a valid number.",
                 min: "Amount must be greater than or equal to 0.01.",
-                max: "Amount must be less than or equal to 1 000 000.",
+                max: "Amount must be less than or equal to 9'999'999.99.",
                 notEqualToZero: "Amount cannot be zero."
             },
             time: {

@@ -12,30 +12,30 @@
             <thead>
             <tr>
                 <th>Amount</th>
-                <th>Time</th>
-                <th>Date</th>
-                <th>Category</th>
-                <th><span style="color: red;">Delete</span></th>
+                <th style="text-align: center">Time</th>
+                <th style="text-align: center">Date</th>
+                <th style="text-align: center">Category</th>
+                <th style="text-align: right"><span style="color: red;">Delete</span></th>
             </tr>
             </thead>
             <tbody>
             @foreach (var transaction in Model.SortedTransactions!)
             {
                 <tr>
-                    <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@(transaction.Amount < 0 ? transaction.Amount.ToString("F2") : "+" + transaction.Amount.ToString("F2")) zł</td>
-                    <td>@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
-                    <td data-bs-toggle="popover" data-bs-title="Full date" data-bs-placement="top" data-bs-content="@transaction.Date.ToString("dd.MM.yyyy") (@transaction.Date.DayOfWeek)">@transaction.Date.ToString("dd.MM.yy")</td>
+                    <td style="color: @(transaction.Amount < 0 ? "red" : "green")">@transaction.Amount.ToString("F2") zł</td>
+                    <td style="text-align: center">@transaction.Time.Hours.ToString("D2"):@transaction.Time.Minutes.ToString("D2")</td>
+                    <td style="text-align: center" data-bs-toggle="popover" data-bs-title="Full date" data-bs-placement="top" data-bs-content="@transaction.Date.ToString("dd.MM.yyyy") (@transaction.Date.DayOfWeek)">@transaction.Date.ToString("dd.MM.yy")</td>
                     @if (!string.IsNullOrEmpty(transaction.Description))
                     {
-                        <td style="text-decoration-line: underline" data-bs-toggle="popover" data-bs-title="Description" data-bs-placement="top" data-bs-content="@transaction.Description">@transaction.Category</td>
+                        <td style="text-align: center; text-decoration-line: underline" data-bs-toggle="popover" data-bs-title="Description" data-bs-placement="top" data-bs-content="@transaction.Description">@transaction.Category</td>
                     }
                     else
                     {
-                        <td>@transaction.Category</td>
+                        <td style="text-align: center">@transaction.Category</td>
                     }
-                    <td>
+                    <td  style="text-align: right">
                         <form method="post" asp-page-handler="Delete" asp-route-amount="@transaction.Amount" asp-route-category="@transaction.Category" asp-route-description="@transaction.Description" asp-route-datetime="@transaction.DateTime">
-                            <button id="deleteButton" type="submit" class="btn" style="font-size: 0.9em;" onclick="return confirm('Are you sure you want to delete this @(transaction.Amount < 0 ? "expense" : "income") of @Math.Abs(transaction.Amount) zł?')">❌</button>
+                            <button id="deleteButton" type="submit" class="btn" style="font-size: 0.9em;" onclick="return confirm('Are you sure you want to delete this @(transaction.Amount < 0 ? "expense" : "income") of @Math.Abs(transaction.Amount)&nbsp;zł?')">❌</button>
                         </form>
                     </td>
                 </tr>

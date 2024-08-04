@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace BudgetLogger.Pages;
 
 // Inherits from base class for models in Razor Pages
-public class IndexModel(ILogger<IndexModel> logger, JsonFileTransactionService transactionService) : PageModel
+public class IndexModel(JsonFileTransactionService transactionService) : PageModel
 {
     public JsonFileTransactionService TransactionService = transactionService;
     public List<Transaction>? Transactions { get; private set; } //value can only be changed by OnGet()

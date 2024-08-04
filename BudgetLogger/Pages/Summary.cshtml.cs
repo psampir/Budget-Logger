@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace BudgetLogger.Pages;
 
 // Inherits from base class for models in Razor Pages
-public class SummaryModel(ILogger<SummaryModel> logger, JsonFileTransactionService transactionService) : PageModel
+public class SummaryModel(JsonFileTransactionService transactionService) : PageModel
 {
     public JsonFileTransactionService TransactionService = transactionService;
     public List<Transaction>? Transactions { get; private set; } //value can only be changed by OnGet()
@@ -28,12 +28,10 @@ public class SummaryModel(ILogger<SummaryModel> logger, JsonFileTransactionServi
             (startDate, endDate) = (endDate, startDate);
         }
         
-        var balanceInRange = (
+        return (
             from transaction in Transactions
             where transaction.Date >= startDate && transaction.Date <= endDate
             select transaction.Amount).Sum();
-
-        return balanceInRange;
     }
     
     // Retrieves positive and negative categories with their respective total amounts within a specified date range

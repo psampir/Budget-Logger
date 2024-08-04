@@ -8,6 +8,12 @@
 
     <ItemGroup>
       <Content Remove="wwwroot\favicon.ico" />
+      <Content Include=".media\desktopAdd.png" />
+      <Content Include=".media\desktopSummary.png" />
+      <Content Include=".media\desktopView.png" />
+      <Content Include=".media\mobileAdd.png" />
+      <Content Include=".media\mobileSummary.png" />
+      <Content Include=".media\mobileView.png" />
     </ItemGroup>
 
     <ItemGroup>

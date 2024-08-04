@@ -15,15 +15,34 @@ namespace BudgetLogger.Services
         // Method to retrieve transactions from the JSON file
         public List<Transaction> GetTransactions()
         {
-            // Using statement to open and read the JSON file
-            using var jsonFileReader = File.OpenText(JsonFileName);
+            try
+            {
+                using var jsonFileReader = File.OpenText(JsonFileName);
 
-            // Deserializing the JSON content into a list of Transaction objects
-            return JsonSerializer.Deserialize<List<Transaction>?>(jsonFileReader.ReadToEnd(),
-                new JsonSerializerOptions
+                var options = new JsonSerializerOptions
                 {
-                    PropertyNameCaseInsensitive = true // Option to make property name matching case-insensitive during deserialization
-                }) ?? throw new InvalidOperationException("Failed to deserialize JSON content into a list of Transaction objects."); //If null throw exception
+                    PropertyNameCaseInsensitive = true,
+                    // Additional settings to handle invalid values during deserialization
+                    AllowTrailingCommas = true, // Allow trailing commas in JSON
+                    ReadCommentHandling = JsonCommentHandling.Skip, // Skip comments in JSON
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase // CamelCase property names
+                };
+
+                var list = JsonSerializer.Deserialize<List<Transaction>>(jsonFileReader.ReadToEnd(), options);
+
+                if (list == null)
+                {
+                    throw new InvalidOperationException(
+                        "Failed to deserialize JSON content into a list of Transaction objects.");
+                }
+
+                return list;
+            }
+            catch (JsonException ex)
+            {
+                // Catch JsonException and wrap it into a more specific exception
+                throw new InvalidOperationException("Error deserializing JSON content: " + ex.Message, ex);
+            }
         }
 
         // Method to serialize write the updated JSON content back to the file

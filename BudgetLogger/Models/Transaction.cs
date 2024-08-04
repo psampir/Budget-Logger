@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace BudgetLogger.Models;
 
 // Represents a transaction entity with specific properties
-public class Transaction(decimal amount, string category, string description, DateTime dateTime) // .NET Primary constructor initializes Transaction properties
+public class Transaction(decimal amount, string category, string description, DateTime dateTime) // .NET 8 primary constructor
 {
     [JsonPropertyName("amt")] // Serialized property names for JSON output
      public decimal Amount { get; } = amount;
@@ -27,4 +27,5 @@ public class Transaction(decimal amount, string category, string description, Da
      // Returns a JSON string representation of the Transaction object
      public override string ToString() => JsonSerializer.Serialize(this);
  }
+
 

@@ -4,3 +4,4 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 /BudgetLogger/wwwroot/data/*
+**/.DS_Store

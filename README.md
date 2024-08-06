@@ -13,8 +13,7 @@ Simple ASP.NET Razor Pages app for effortless transaction management and analysi
 ### Summarize the budget
 <img src="./media/desktopSummary.png" alt="Desktop Summary">
 
-## Supports mobile devices
-
+### Supports mobile devices
 <img src="./media/mobileView.png" alt="Mobile View" width="250">
 <img src="./media/mobileAdd.png" alt="Mobile Add" width="250">
 <img src="./media/mobileSummary.png" alt="Mobile Summary" width="250">

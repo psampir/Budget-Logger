@@ -1,8 +1,8 @@
 # Budget Logger
 
-### Simple ASP.NET Razor Pages app for effortless transaction management and analysis.
+Simple ASP.NET Razor Pages app for effortless transaction management and analysis.
 
-## Features
+## Features:
 
 ### View income and expenses 
 <img src="./media/desktopView.png" alt="Desktop View">
